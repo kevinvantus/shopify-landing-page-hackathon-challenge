@@ -4,6 +4,7 @@
 const panels = document.querySelectorAll(".panel");
 const accordionCtr = document.querySelector(".accordion-ctr");
 const callout = document.querySelector(".callout");
+const progressBar = document.querySelector(".progress-bar");
 
 /**
  * Callout

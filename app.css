@@ -28,10 +28,6 @@ body {
 }
 
 /* Utils styles start */
-.desktop-only {
-  display: none;
-}
-
 .btn {
   background-color: #303030;
   /* color: #fff; */
@@ -65,27 +61,11 @@ body {
   background-color: transparent;
   font-weight: 600;
 }
-/* Utils styles end */
-
-/* Focus styles start */
-:focus {
-  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.75),
-    -1px -1px 5px 2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.75),
-    -1px -1px 5px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.75),
-    -1px -1px 5px 2px rgba(0, 0, 0, 0.75);
-}
-
 .btn:focus {
-  box-shadow: 1px 1px 3px 2px rgba(171, 155, 155, 0.75),
-    -1px -1px 3px 2px rgba(171, 155, 155, 0.75);
-  -webkit-box-shadow: 1px 1px 3px 2px rgba(171, 155, 155, 0.75),
-    -1px -1px 3px 2px rgba(171, 155, 155, 0.75);
-  -moz-box-shadow: 1px 1px 3px 2px rgba(171, 155, 155, 0.75),
-    -1px -1px 3px 2px rgba(171, 155, 155, 0.75);
+  box-shadow: 0 0 0 3px #005bd3;
+  border: 1px solid #0000001a;
 }
-/* Focus styles end */
+/* Utils styles end */
 
 /* Header styles start */
 .main-header {
@@ -110,10 +90,16 @@ body {
   align-items: center;
   flex-basis: 100%;
   max-width: 30rem;
+  border: 1px solid #616161;
+  transition: border 0.25s;
+}
+
+.search:hover {
+  border: 1px solid #e1e1e1;
 }
 
 .search:focus-within {
-  border: 1px solid rgba(219, 209, 209, 0.75);
+  border: 2px solid #ffffff;
   transition: all 0.35s;
 }
 
@@ -146,6 +132,30 @@ body {
 
 .ntfn-btn {
   margin-inline-end: 0.5rem;
+  transition: background 0.25s;
+}
+
+.ntfn-btn:hover {
+  background: #616161;
+}
+
+.ntfn-btn:active {
+  background: #656266;
+}
+
+.ntfn-btn:focus,
+.dropdown-btn:focus {
+  box-shadow: 0 0 0 3px #005bd3;
+}
+
+.dropdown-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: transparent;
+}
+
+.tag {
+  display: none;
 }
 
 .user-initials {
@@ -159,6 +169,7 @@ body {
   font-size: var(--fs-12);
   font-weight: 500;
   color: #00000066;
+  flex-shrink: 0;
 }
 /* Header styles end */
 
@@ -194,7 +205,6 @@ body {
 }
 
 .callout .content a.btn {
-  box-shadow: 0 -1px 0 0 #b5b5b5 inset;
   background: linear-gradient(0deg, #ffffff, #ffffff),
     linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
   border-radius: 6px;
@@ -204,11 +214,18 @@ body {
   height: 28px;
   color: #323232;
   display: inline-block;
+  border: 1px solid #0000001a;
+  box-shadow: 0 -1px 0 0 #b5b5b5 inset;
+  transition: background 0.25s;
 }
 
-.callout .content a.btn:focus {
-  outline: 1px solid #fff;
-  outline-offset: 4px;
+.callout .content a.btn:hover {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    linear-gradient(0deg, #f7f7f7, #f7f7f7);
+}
+.callout .content a.btn:active {
+  background: #f7f7f7;
+  box-shadow: 0 2px 1.5px 0 #e2e2e2 inset;
 }
 /* Alert box end */
 
@@ -328,18 +345,186 @@ body {
   text-decoration: none;
 }
 
+/* Dropdown menu start */
+.dropdown-panel {
+  border: 1px solid #dbdbdb;
+  box-shadow: 0px 4px 8px 0px #0000000d;
+  max-width: 20rem;
+  border-radius: 14px;
+  padding-block: 6px;
+}
+
+.dropdown-panel menu {
+  list-style: none;
+}
+
+.dropdown-panel li:not(:last-of-type) {
+  margin-block-end: 4px;
+}
+
+.dropdown-panel .tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 19.25rem;
+  margin: auto;
+  background: #f1f1f1;
+  padding: 4px 0.75rem 4px 0.5rem;
+}
+
+.dropdown-panel .tag svg {
+  margin-inline-start: auto;
+}
+
+.dropdown-panel .tag .initials {
+  width: 1.75rem;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5.25px;
+  background-color: #36fba1;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: #00000066;
+  flex-shrink: 0;
+}
+
+.dropdown-panel .tag .username {
+  color: #303030;
+  font-weight: 600;
+  font-size: var(--fs-13);
+}
+
+.dropdown-panel .all-stores a {
+  padding: 7px 9px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dropdown-panel a {
+  display: block;
+  padding-block: 6px;
+  padding-inline: 6px;
+}
+
+.dropdown-panel a:hover,
+.dropdown-panel a:focus {
+  background: #f1f1f1;
+  border-radius: 8px;
+  transition: all 0.25s;
+}
+
+.dropdown-panel a,
+.dropdown-panel div {
+  font-size: var(--fs-13);
+  color: #303030;
+  font-weight: 400;
+  cursor: default;
+}
+
+.dropdown-panel .main {
+  margin-block: 4px;
+  border-block: 0.75px solid #e1e1e1;
+  padding-block-end: 4px;
+}
+
+.dropdown-panel .main li,
+.dropdown-panel .footer li {
+  padding-inline: 6px;
+}
+
+.dropdown-panel .footer {
+  padding-block-start: 4px;
+}
+
+.dropdown-panel .footer li:first-of-type {
+  padding-block: 8px;
+}
+
+.dropdown-panel .footer li:first-of-type div {
+  padding-inline: 6px;
+}
+
+.dropdown-panel .footer .name {
+  font-weight: 500;
+}
+
+.dropdown-panel .footer .email {
+  color: #616161;
+  font-size: var(--fs-12);
+}
+/* Dropdown menu end */
+
+/* Alerts list start */
+.alerts-list {
+  padding: 1rem;
+  box-shadow: 0px 4px 8px 0px #0000000d;
+  border: 1px solid #dbdbdb;
+  max-width: 24rem;
+  border-radius: 14px;
+}
+
+.alerts-list .heading {
+  margin-block-end: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.alerts-list h2 {
+  color: #303030;
+  font-weight: 600;
+  font-size: var(--fs-14);
+}
+
+.alerts-list .actions {
+  margin-inline-start: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.alerts-list .alert {
+  background: #f1f1f1;
+  padding: 1rem;
+  color: #616161;
+  font-size: var(--fs-13);
+  font-weight: 600;
+}
+/* Alerts list end */
+
 /* Media queries start */
 @media screen and (min-width: 815px) {
-  .desktop-only {
-    display: none;
-  }
-
   .logo-mobile {
     display: none;
   }
 
   .logo-desktop {
     display: inline;
+  }
+
+  .dropdown-btn {
+    background: #303030;
+  }
+
+  .dropdown-btn:focus {
+    box-shadow: 0 0 0 3px #005bd3;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+    padding-inline: 0.5rem;
+    color: #e3e3e3;
+    font-weight: 500;
+    font-size: var(--fs-12);
+  }
+
+  .user-initials {
+    width: 1.75rem;
+    height: 28px;
   }
 
   .callout {
