@@ -263,6 +263,16 @@ body {
 .accordion-ctr {
   padding-inline: calc(var(--gutter) / 2);
   padding-block-end: 0.5rem;
+  display: none;
+}
+
+.accordion-ctr.active {
+  display: block;
+}
+
+.toggle-guide.active svg {
+  transform: rotate(180deg);
+  transition: all 0.35s;
 }
 
 .accordion .panel {

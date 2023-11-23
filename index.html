@@ -120,7 +120,11 @@
                   <progress max="5" value="1">1</progress>
                 </div>
               </div>
-              <button class="btn transparent" style="margin-inline-start: auto">
+              <button
+                class="btn transparent toggle-guide"
+                style="margin-inline-start: auto"
+                onclick="toggleGuide()"
+              >
                 <svg
                   width="21"
                   height="20"
@@ -141,7 +145,7 @@
             <div class="accordion-ctr">
               <div class="accordion">
                 <!-- Panel 1 -->
-                <section class="panel active">
+                <section class="panel" data-panel="0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -162,9 +166,11 @@
                     />
                   </svg>
                   <div style="flex-grow: 1">
-                    <h2>Customize your online store</h2>
+                    <h2 onclick="togglePanel(1)">
+                      Customize your online store
+                    </h2>
 
-                    <div class="content active">
+                    <div class="content">
                       <div>
                         <p>
                           Choose a theme and add your logo, colors, and images
@@ -190,7 +196,7 @@
                 </section>
 
                 <!-- Panel 2 -->
-                <section class="panel">
+                <section class="panel" data-panel="1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -211,7 +217,7 @@
                     />
                   </svg>
                   <div style="flex-grow: 1">
-                    <h2>Add your first product</h2>
+                    <h2 onclick="togglePanel(2)">Add your first product</h2>
 
                     <div class="content">
                       <div>
@@ -246,7 +252,7 @@
                 </section>
 
                 <!-- Panel 3 -->
-                <section class="panel">
+                <section class="panel" data-panel="2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -267,7 +273,7 @@
                     />
                   </svg>
                   <div style="flex-grow: 1">
-                    <h2>Add a custom domain</h2>
+                    <h2 onclick="togglePanel(3)">Add a custom domain</h2>
 
                     <div class="content">
                       <div>
@@ -296,7 +302,7 @@
                 </section>
 
                 <!-- Panel 4 -->
-                <section class="panel">
+                <section class="panel" data-panel="3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -317,7 +323,7 @@
                     />
                   </svg>
                   <div style="flex-grow: 1">
-                    <h2>Name your store</h2>
+                    <h2 onclick="togglePanel(4)">Name your store</h2>
 
                     <div class="content">
                       <div>
@@ -346,7 +352,7 @@
                 </section>
 
                 <!-- Panel 5 -->
-                <section class="panel">
+                <section class="panel" data-panel="4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -367,7 +373,7 @@
                     />
                   </svg>
                   <div style="flex-grow: 1">
-                    <h2>Set up a payment provider</h2>
+                    <h2 onclick="togglePanel(5)">Set up a payment provider</h2>
 
                     <div class="content">
                       <div>
