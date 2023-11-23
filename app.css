@@ -179,6 +179,12 @@ body {
   gap: 0.5rem;
 }
 
+.callout.hide {
+  visibility: hidden;
+  height: 0;
+  margin-block: 0;
+}
+
 .callout .content {
   flex-grow: 1;
 }
@@ -338,6 +344,11 @@ body {
 
   .callout {
     border-radius: 8px;
+  }
+
+  .callout.hide {
+    height: auto;
+    margin-block: 28px 16px;
   }
 
   .callout .content {

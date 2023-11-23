@@ -3,6 +3,16 @@
  */
 const panels = document.querySelectorAll(".panel");
 const accordionCtr = document.querySelector(".accordion-ctr");
+const callout = document.querySelector(".callout");
+
+/**
+ * Callout
+ */
+const calloutDismissBtn = callout.querySelector("button");
+calloutDismissBtn.addEventListener("click", () => {
+  callout.classList.add("hide");
+  console.log("callout");
+});
 
 /**
  * Guide
